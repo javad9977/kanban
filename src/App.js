@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Layout from "./Components/Layout/Layout";
+import { Home } from "./Pages/Home";
+import {Routes , Route} from 'react-router-dom'
+import ChartTodo from "./Pages/ChartTodo";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchTodos } from "./redux/todo-slice";
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/charts" element={<ChartTodo/>}/>
+      </Routes>
+    </Layout>
   );
 }
 
